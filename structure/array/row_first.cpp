@@ -80,7 +80,7 @@ int initArray(Array *arr, int ndim, ...)
     if (!arr->base)
         return ERROR;
 
-    arr->constants = new int(ndim);
+    arr->constants = new int[ndim];
     arr->constants[ndim - 1] = 1;
     for (i = ndim - 2; i >= 0; i--)
     {
