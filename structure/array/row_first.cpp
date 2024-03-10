@@ -42,6 +42,7 @@ int main()
                 assign(&arr, &a, i, m, n);
             }
     int b = 0;
+    cout << "size of int = " << sizeof(int) << endl;
     /// 取值测试
     for (i = 0; i < 2; ++i)
         for (m = 0; m < 3; ++m)
@@ -127,7 +128,6 @@ int assign(Array *arr, ElemType *elem, ...)
         return ERROR;
     }
     arr->base[pos] = *elem;
-
     return OK;
 }
 
@@ -138,6 +138,6 @@ int value(const Array *arr, ElemType *elem, ...)
     va_start(ap, elem);
     pos = locate(arr, arr->dim, ap);
     *elem = arr->base[pos];
-
+    cout<<"addr = " << arr->base + pos <<endl;
     return OK;
 }
