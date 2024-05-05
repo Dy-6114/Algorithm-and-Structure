@@ -102,7 +102,7 @@ bool isEmpty(LinkList L)
 // 按位查找，返回第i个元素（带头结点）
 LNode *getElem(LinkList L, int i)
 {
-    if (i < 0)
+    if (i < 1)
         return NULL;
     int j = 0;
     LNode *p = L;
@@ -173,14 +173,7 @@ bool listInsert(LinkList &L, int i, int e)
         p = p->next;
         j++;
     }
-    // return InsertNextNode(p, e) 封装的好处
-    if (p == NULL)
-        return false;
-    LNode *s = (LNode *)malloc(sizeof(LNode));
-    s->data = e;
-    s->next = p->next;
-    p->next = s;
-    return true;
+    return insertNextNode(p, e);// 封装的好处
 }
 
 // 后插操作：在p结点之后插入e
